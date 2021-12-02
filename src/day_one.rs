@@ -76,11 +76,11 @@ fn question_two(input_file: &str) -> i32 {
 pub fn solve() {
     println!("  - Day One: ");
     println!(
-        "   - Question One: {}",
+        "    - Question One: {}",
         question_one("inputs/day_one/day_one.txt")
     );
     println!(
-        "   - Question Two: {}",
+        "    - Question Two: {}",
         question_two("inputs/day_one/day_one_two.txt")
     );
 }

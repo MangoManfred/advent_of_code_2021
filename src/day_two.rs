@@ -64,12 +64,14 @@ fn two(pairs: &[(String, usize)]) -> usize {
 }
 
 pub fn solve() {
-    let input = read_input("inputs/day_two/one.txt");
-    let solution = one(&input);
     println!("  - Day Two:");
-    println!["    - Question One: {}", solution];
+    println![
+        "    - Question One: {}",
+        one(&read_input("inputs/day_two/one.txt"))
+    ];
 
-    let input = read_input("inputs/day_two/two.txt");
-    let solution = two(&input);
-    println!["    - Question Two: {}", solution];
+    println![
+        "    - Question Two: {}",
+        two(&read_input("inputs/day_two/two.txt"))
+    ];
 }
