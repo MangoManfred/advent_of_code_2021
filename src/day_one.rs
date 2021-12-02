@@ -75,21 +75,15 @@ fn question_two(input_file: &str) -> i32 {
 
 pub fn solve(alternative: bool) {
     println!("  - Day One: ");
-    if alternative{
+    if alternative {
         let input = read_file_alternative("inputs/day_one/day_one.txt");
         let solution = question_one_altervative(&input);
-        println!(
-            "    - Question One Alternative: {}",
-            solution
-        );
+        println!("    - Question One Alternative: {}", solution);
 
         let input = read_file_alternative("inputs/day_one/day_one_two.txt");
         let solution = question_two_alternative(&input);
-        println!(
-            "    - Question Two Alternative: {}",
-            solution
-        );
-    }else{
+        println!("    - Question Two Alternative: {}", solution);
+    } else {
         println!(
             "    - Question One: {}",
             question_one("inputs/day_one/day_one.txt")
@@ -99,8 +93,6 @@ pub fn solve(alternative: bool) {
             question_two("inputs/day_one/day_one_two.txt")
         );
     }
-
-
 }
 
 #[cfg(test)]

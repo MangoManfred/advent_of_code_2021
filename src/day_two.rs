@@ -67,7 +67,7 @@ pub fn one_alternative() {
     let (f, d) = include_str!("../inputs/day_two/one.txt")
         .lines()
         .flat_map(|l| l.split_once(" "))
-        .fold((0, 0), |(f, d), (k, v)|{
+        .fold((0, 0), |(f, d), (k, v)| {
             match (k, v.parse::<i32>().unwrap()) {
                 ("forward", v) => (f + v, d),
                 ("down", v) => (f, d + v),
@@ -83,7 +83,7 @@ pub fn two_alternative() {
     let (f, d, _) = include_str!("../inputs/day_two/one.txt")
         .lines()
         .flat_map(|l| l.split_once(" "))
-        .fold((0, 0, 0), |(f, d, a), (k, v)|{
+        .fold((0, 0, 0), |(f, d, a), (k, v)| {
             match (k, v.parse::<i32>().unwrap()) {
                 ("forward", v) => (f + v, d + a * v, a),
                 ("down", v) => (f, d, a + v),
@@ -98,9 +98,9 @@ pub fn two_alternative() {
 pub fn solve(alternative: bool) {
     println!("  - Day Two:");
     if alternative {
-            one_alternative();
-            two_alternative();
-    }else{
+        one_alternative();
+        two_alternative();
+    } else {
         println![
             "    - Question One: {}",
             one(&read_input("inputs/day_two/one.txt"))

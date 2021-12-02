@@ -1,5 +1,5 @@
 use advent_of_code::solve_all;
-use std::{time::Instant, env};
+use std::{env, time::Instant};
 fn main() {
     let args: Vec<String> = env::args().collect();
     let mut alternative = false;
