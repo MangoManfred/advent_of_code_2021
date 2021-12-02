@@ -63,6 +63,38 @@ fn two(pairs: &[(String, usize)]) -> usize {
     depth * horizontal
 }
 
+pub fn _one_alternative() {
+    let (f, d) = include_str!("../inputs/day_two/one.txt")
+        .lines()
+        .flat_map(|l| l.split_once(" "))
+        .fold((0, 0), |(f, d), (k, v)|{
+            match (k, v.parse::<i32>().unwrap()) {
+                ("forward", v) => (f + v, d),
+                ("down", v) => (f, d + v),
+                ("up", v) => (f, d - v),
+                _ => unreachable!(),
+            }
+        });
+
+    println!("{}", f * d);
+}
+
+pub fn _two_alternative() {
+    let (f, d, _) = include_str!("../inputs/day_two/one.txt")
+        .lines()
+        .flat_map(|l| l.split_once(" "))
+        .fold((0, 0, 0), |(f, d, a), (k, v)|{
+            match (k, v.parse::<i32>().unwrap()) {
+                ("forward", v) => (f + v, d + a * v, a),
+                ("down", v) => (f, d, a + v),
+                ("up", v) => (f, d, a - v),
+                _ => unreachable!(),
+            }
+        });
+
+    println!("{}", f * d);
+}
+
 pub fn solve() {
     println!("  - Day Two:");
     println![
