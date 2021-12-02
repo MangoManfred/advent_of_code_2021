@@ -1,6 +1,6 @@
 use std::fs;
 
-fn _read_file_alternative(input_file: &str) -> Vec<usize> {
+fn read_file_alternative(input_file: &str) -> Vec<usize> {
     fs::read_to_string(input_file)
         .expect("cant read file")
         .lines()
@@ -8,14 +8,14 @@ fn _read_file_alternative(input_file: &str) -> Vec<usize> {
         .collect()
 }
 
-fn _question_one_altervative(input: &[usize]) -> usize {
+fn question_one_altervative(input: &[usize]) -> usize {
     input
         .windows(2)
         .filter(|window| window[0] < window[1])
         .count()
 }
 
-fn _question_two_alternative(input: &[usize]) -> usize {
+fn question_two_alternative(input: &[usize]) -> usize {
     let mut count = 0;
     for i in 0..input.len() - 3 {
         if input[i + 3] > input[i] {
@@ -73,16 +73,34 @@ fn question_two(input_file: &str) -> i32 {
     increase_count
 }
 
-pub fn solve() {
+pub fn solve(alternative: bool) {
     println!("  - Day One: ");
-    println!(
-        "    - Question One: {}",
-        question_one("inputs/day_one/day_one.txt")
-    );
-    println!(
-        "    - Question Two: {}",
-        question_two("inputs/day_one/day_one_two.txt")
-    );
+    if alternative{
+        let input = read_file_alternative("inputs/day_one/day_one.txt");
+        let solution = question_one_altervative(&input);
+        println!(
+            "    - Question One Alternative: {}",
+            solution
+        );
+
+        let input = read_file_alternative("inputs/day_one/day_one_two.txt");
+        let solution = question_two_alternative(&input);
+        println!(
+            "    - Question Two Alternative: {}",
+            solution
+        );
+    }else{
+        println!(
+            "    - Question One: {}",
+            question_one("inputs/day_one/day_one.txt")
+        );
+        println!(
+            "    - Question Two: {}",
+            question_two("inputs/day_one/day_one_two.txt")
+        );
+    }
+
+
 }
 
 #[cfg(test)]

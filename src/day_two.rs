@@ -63,7 +63,7 @@ fn two(pairs: &[(String, usize)]) -> usize {
     depth * horizontal
 }
 
-pub fn _one_alternative() {
+pub fn one_alternative() {
     let (f, d) = include_str!("../inputs/day_two/one.txt")
         .lines()
         .flat_map(|l| l.split_once(" "))
@@ -76,10 +76,10 @@ pub fn _one_alternative() {
             }
         });
 
-    println!("{}", f * d);
+    println!("    - Question Two Alternative: {}", f * d);
 }
 
-pub fn _two_alternative() {
+pub fn two_alternative() {
     let (f, d, _) = include_str!("../inputs/day_two/one.txt")
         .lines()
         .flat_map(|l| l.split_once(" "))
@@ -92,18 +92,23 @@ pub fn _two_alternative() {
             }
         });
 
-    println!("{}", f * d);
+    println!("    - Question Two Alternative: {}", f * d);
 }
 
-pub fn solve() {
+pub fn solve(alternative: bool) {
     println!("  - Day Two:");
-    println![
-        "    - Question One: {}",
-        one(&read_input("inputs/day_two/one.txt"))
-    ];
+    if alternative {
+            one_alternative();
+            two_alternative();
+    }else{
+        println![
+            "    - Question One: {}",
+            one(&read_input("inputs/day_two/one.txt"))
+        ];
 
-    println![
-        "    - Question Two: {}",
-        two(&read_input("inputs/day_two/two.txt"))
-    ];
+        println![
+            "    - Question Two: {}",
+            two(&read_input("inputs/day_two/two.txt"))
+        ];
+    }
 }
