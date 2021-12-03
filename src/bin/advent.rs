@@ -8,7 +8,6 @@ fn main() {
         alternative = true;
     }
 
-    println!("args {}", alternative);
     println!("Starting the Advent of Code:");
     let now = Instant::now();
     solve_all(alternative);
