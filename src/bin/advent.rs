@@ -1,4 +1,3 @@
-
 use advent_of_code::solve_all;
 use std::{env, time::Instant};
 
